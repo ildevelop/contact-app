@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Icon } from "semantic-ui-react";
-import { Wrapper } from "./../../style/main";
+import { Wrapper } from "../../style/main";
 
 const extra = (
   <a>

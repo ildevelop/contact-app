@@ -1,9 +1,8 @@
 import styled from "styled-components";
-export const Wrapper = styled.div`
+export const TableWrapper = styled.div`
   display: flex;
   justify-content: center;
-  flex-direction: ${({ direction }) => (direction ? direction : "row")};
-  margin: ${({ margin }) => (margin ? margin : 0)};
+  flex-direction: row;
 `;
 export const Title = styled.div`
   width: 33%;
@@ -13,10 +12,10 @@ export const Title = styled.div`
   align-items: center;
   text-align: center;
 `;
-export const TableHead = styled(Wrapper)`
+export const TableHead = styled(TableWrapper)`
   background: #9e9f9f;
 `;
-export const TableRow = styled(Wrapper)`
+export const TableRow = styled(TableWrapper)`
   background: ${({ item }) => (item ? "#fff" : "#9e9f9f")};
   border-bottom: 1px solid #9e9f9f;
   cursor: ${({ item }) => (item ? "pointer" : "default")};

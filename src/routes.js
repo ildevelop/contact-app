@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Contacts from "./components/Contacts/Contacts";
-import Help from "./components/Help/Help";
-import About from "./components/About/About";
+import Contacts from "./pages/Contacts/Contacts";
+import Help from "./pages/Help/Help";
+import About from "./pages/About/About";
 
 function routes() {
   return (
