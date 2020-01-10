@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import Routes from "./../routes";
-import { Button, Icon } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import { Wrapper } from "./../style/main";
 
 export default function App() {

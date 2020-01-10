@@ -15,6 +15,10 @@ export const Title = styled.div`
 export const TableHead = styled(TableWrapper)`
   background: #9e9f9f;
 `;
+export const TableBody = styled.div`
+  height: 200px;
+  overflow: auto;
+`;
 export const TableRow = styled(TableWrapper)`
   background: ${({ item }) => (item ? "#fff" : "#9e9f9f")};
   border-bottom: 1px solid #9e9f9f;

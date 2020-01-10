@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Button } from "semantic-ui-react";
 import { Wrapper, DatePickerWrapper, DateTitle } from "./ContactEditor.styled";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function ContactEditor(props) {
-  const [birthday, setBirthday] = useState(new Date());
+export default function ContactEditor({ selected, setSelectedDate }) {
   return (
     <Wrapper>
       <Form size="big" className="formWrapper">
@@ -14,12 +13,17 @@ export default function ContactEditor(props) {
             id="form-subcomponent-shorthand-input-first-name"
             label="First name"
             placeholder="First name"
-            defaultValue={props.selected.firstName}
+            defaultValue={selected.first}
           />
 
           <DatePickerWrapper>
             <DateTitle>Birthday</DateTitle>
-            <DatePicker onChange={setBirthday} selected={birthday} />
+            <DatePicker
+              onChange={date => {
+                setSelectedDate({ ...selected, birthday: new Date(date) });
+              }}
+              selected={selected.birthday ? new Date(selected.birthday) : ""}
+            />
           </DatePickerWrapper>
         </Form.Group>
         <Form.Group widths="equal">
@@ -27,13 +31,12 @@ export default function ContactEditor(props) {
             id="form-subcomponent-shorthand-input-last-name"
             label="Last name"
             placeholder="Last name"
-            defaultValue={props.selected.lastName}
+            defaultValue={selected.last}
           />
           <Form.Input
             id="form-subcomponent-shorthand-input-id"
             label="Cell"
-            defaultValue={props.selected.id}
-            disabled
+            defaultValue={selected.cell}
           />
         </Form.Group>
         <Button className="saveBtn" primary>

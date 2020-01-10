@@ -1,5 +1,6 @@
 import React from "react";
-import { Title, TableRow, TableHead } from "./Table.styled";
+import Loading from "./../Loader";
+import { Title, TableBody, TableRow, TableHead } from "./Table.styled";
 
 function Table(props) {
   return (
@@ -10,14 +11,24 @@ function Table(props) {
         <Title>Birthday</Title>
         <Title>Cell#</Title>
       </TableHead>
-      {props.contactList.map(item => (
-        <TableRow item key={item.id} onClick={() => props.setSelected(item)}>
-          <Title item>{item.firstName}</Title>
-          <Title item>{item.lastName}</Title>
-          <Title item>{item.birthday}</Title>
-          <Title item>{item.id}</Title>
-        </TableRow>
-      ))}
+      {!props.contactList.length ? (
+        <Loading />
+      ) : (
+        <TableBody>
+          {props.contactList.map(item => (
+            <TableRow
+              item
+              key={item._id}
+              onClick={() => props.setSelected({ ...item })}
+            >
+              <Title item>{item.first}</Title>
+              <Title item>{item.last}</Title>
+              <Title item>{item.birthday.slice(0, 10)}</Title>
+              <Title item>{item.cell}</Title>
+            </TableRow>
+          ))}
+        </TableBody>
+      )}
     </div>
   );
 }
