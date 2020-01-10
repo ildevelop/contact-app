@@ -19,7 +19,13 @@ function Table(props) {
             <TableRow
               item
               key={item._id}
-              onClick={() => props.setSelected({ ...item })}
+              onClick={() =>
+                props.setSelected({
+                  ...item,
+                  first_old: item.first,
+                  last_old: item.last
+                })
+              }
             >
               <Title item>{item.first}</Title>
               <Title item>{item.last}</Title>

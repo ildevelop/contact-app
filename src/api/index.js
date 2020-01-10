@@ -5,9 +5,13 @@ const DEV =
 function getContacts() {
   return axios.post(DEV + "api/getContacts");
 }
+function updateContact(contact) {
+  return axios.put(DEV + "api/updateContact", contact);
+}
 
 const Api = {
-  getContacts
+  getContacts,
+  updateContact
 };
 
 export default Api;

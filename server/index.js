@@ -42,7 +42,6 @@ app.post("/api/getContacts", (req, res) => {
   api.getContacts(res);
 });
 app.put("/api/updateContact", (req, res) => {
-  console.log("updateContact", req);
   api.updateContact(req.body, res);
 });
 
