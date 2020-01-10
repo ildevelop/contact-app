@@ -41,5 +41,9 @@ app.use("/*", express.static(path.join(__dirname, "./../build")));
 app.post("/api/getContacts", (req, res) => {
   api.getContacts(res);
 });
+app.put("/api/updateContact", (req, res) => {
+  console.log("updateContact", req);
+  api.updateContact(req.body, res);
+});
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
