@@ -1,1 +1,1 @@
-cd server && npm i && node index.js
+npm start
