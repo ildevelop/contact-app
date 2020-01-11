@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
 `;
 export const DatePickerWrapper = styled.div`
   .react-datepicker-wrapper {
-    width: 300px;
   }
 `;
 export const DateTitle = styled.div`

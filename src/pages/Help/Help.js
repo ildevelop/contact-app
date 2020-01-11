@@ -1,11 +1,13 @@
 import React from "react";
-import { Button, Icon } from "semantic-ui-react";
+import { Wrapper } from "../../style/main";
 
 function Help() {
   return (
-    <div>
-      <h1>Help</h1>
-    </div>
+    <Wrapper direction="column">
+      <h1>Help? </h1>
+      <br />
+      <a href="/contacts">Go to home!</a>
+    </Wrapper>
   );
 }
 

@@ -6,24 +6,34 @@ import Message from "../../components/Message";
 import { Wrapper } from "../../style/main";
 import API from "../../api";
 
+const CONTACT_MOCK = {
+  first: "",
+  last: "",
+  first_old: "",
+  last_old: "",
+  birthday: "",
+  _id: 1,
+  cell: ""
+};
 function Contacts() {
   const [contactList, setContactList] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
-  const [selected, setSelected] = useState({
-    first: "",
-    last: "",
-    first_old: "",
-    last_old: "",
-    birthday: "",
-    _id: 1,
-    cell: ""
-  });
+  const [selected, setSelected] = useState(CONTACT_MOCK);
   const updateContact = () => {
     setShowMessage(true);
     API.updateContact(selected)
       .then(status => {
+        const updatedList = contactList.map(contact => {
+          if (contact._id === selected._id) {
+            return selected;
+          } else {
+            return contact;
+          }
+        });
+        setContactList(updatedList);
         setShowMessage(true);
+        setSelected(CONTACT_MOCK);
       })
       .catch(error => {
         setShowErrorMessage(true);
