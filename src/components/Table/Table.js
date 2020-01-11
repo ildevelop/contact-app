@@ -2,7 +2,7 @@ import React from "react";
 import Loading from "./../Loader";
 import { Title, TableBody, TableRow, TableHead } from "./Table.styled";
 
-function Table(props) {
+const Table = React.memo(props => {
   return (
     <div>
       <TableHead>
@@ -29,7 +29,11 @@ function Table(props) {
             >
               <Title item>{item.first}</Title>
               <Title item>{item.last}</Title>
-              <Title item>{item.birthday.slice(0, 10)}</Title>
+              <Title item>
+                {typeof item.birthday === "string"
+                  ? item.birthday.slice(0, 10)
+                  : JSON.stringify(item.birthday).slice(1, 10)}
+              </Title>
               <Title item>{item.cell}</Title>
             </TableRow>
           ))}
@@ -37,6 +41,6 @@ function Table(props) {
       )}
     </div>
   );
-}
+});
 
 export default Table;

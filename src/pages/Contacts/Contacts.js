@@ -39,12 +39,9 @@ function Contacts() {
         setShowErrorMessage(true);
       });
   };
-  const updateSelectedContact = useCallback(
-    contact => {
-      setSelected({ ...contact });
-    },
-    [selected]
-  );
+  const updateSelectedContact = useCallback(contact => {
+    setSelected({ ...contact });
+  }, []);
   useEffect(() => {
     API.getContacts()
       .then(res => {
